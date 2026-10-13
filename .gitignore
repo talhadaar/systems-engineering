@@ -5,3 +5,6 @@ CLAUDE.local.md
 # Profiler output
 perf.data*
 dhat-heap.json
+
+# Personal practice area
+scratch/
