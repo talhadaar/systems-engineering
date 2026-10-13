@@ -1,0 +1,7 @@
+target/
+.DS_Store
+CLAUDE.local.md
+
+# Profiler output
+perf.data*
+dhat-heap.json
