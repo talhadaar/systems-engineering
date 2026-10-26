@@ -1,0 +1,8 @@
+[profile.release]
+# Keep symbols and line info so perf, flamegraphs and rr give readable output.
+debug = "line-tables-only"
+
+[profile.bench-stable]
+inherits = "release"
+codegen-units = 1
+lto = "thin"
