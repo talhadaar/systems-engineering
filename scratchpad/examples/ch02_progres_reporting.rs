@@ -15,6 +15,8 @@ fn main() {
             for i in 0..100 {
                 // some process
                 num_done.store(i + 1, Relaxed);
+                // let main thread know a new item is processed
+                main_thread.unpark();
             }
         });
 
@@ -25,9 +27,10 @@ fn main() {
                 break;
             }
             println!("Ongoing... {n}/100 done.");
-            thread::sleep(Duration::from_secs(1));
+            thread::park_timeout(Duration::from_millis(100));
         }
     });
 
-    println!("Done!");
+    let n = num_done.load(Relaxed);
+    println!("{n}/100 done!");
 }
