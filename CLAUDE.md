@@ -1,6 +1,6 @@
 # Systems engineering mono repo
 
-Capstone projects for an 11-module Rust systems roadmap: lock-free structures, async I/O, storage engines, performance, parallel query execution, transactions, consensus, an EVM, P2P gossip, a RISC-V kernel, and deployment. One directory per capstone. Each capstone implements a paper or spec and has an objective check (test suite, external tool, or benchmark).
+Capstone projects for an 11-module Rust systems roadmap (plus optional 8b): lock-free structures, async I/O, storage engines, performance, parallel query execution, transactions, consensus, an EVM, a ledger and mempool, P2P gossip, a RISC-V kernel, and deployment. One directory per capstone. Each capstone implements a paper or spec and has an objective check (test suite, external tool, or benchmark).
 
 Plans, progress and handoff notes are kept outside this repo. Never commit specs, plans or session notes here.
 
@@ -15,7 +15,7 @@ The user writes the code. Claude guides: specs, milestones, tests and checks, re
 | `lockfree/` | 1 | Harris list + EBR |
 | `kv/` | 2, 3, 4, 6, 7 | One growing system: server, LSM, YCSB driver, MVCC, Raft. Cargo workspace, one crate per layer |
 | `tpch/` | 5 | Standalone |
-| `evm/` | 8 | |
+| `evm/` | 8, 8b | 8b (optional): ledger and mempool, state on the `kv/` LSM. Becomes a Cargo workspace when 8b starts |
 | `p2p/` | 9 | Part B uses `evm/` |
 | `kernel/` | 10 | `no_std`, RISC-V target |
 | `deploy/` | 11 | CI, container, k8s manifests for `kv/` |
